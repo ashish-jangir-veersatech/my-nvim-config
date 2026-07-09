@@ -10,12 +10,13 @@ local plugins = {
   -- GitHub Copilot integration
   {
     "zbirenbaum/copilot.lua",
+    enabled = true,
+    lazy = true,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
         suggestion = {
-          enabled = false, -- Disable inline suggestions by default
           auto_trigger = true,
           keymap = {
             accept = "<C-l>", --Ctrl+l to accept suggestion
@@ -38,6 +39,8 @@ local plugins = {
   -- Optional: Copilot completion source for nvim-cmp
   {
     "zbirenbaum/copilot-cmp",
+    enabled = true,
+    lazy = true,
     dependencies = { "zbirenbaum/copilot.lua" },
     config = function()
       require("copilot_cmp").setup()
@@ -46,6 +49,8 @@ local plugins = {
   -- Copilot Chat plugin
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = true,
+    lazy = true,
     branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- ensure Copilot core is installed
